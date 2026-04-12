@@ -1,0 +1,119 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: mspFS\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: shadowrider <plugins@fselbig.de>\n"
+"Language-Team: shadowrider <plugins@fselbig.de>\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: iso-8859-1\n"
+"X-Generator: Poedit 1.6.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "April"
+msgstr "April"
+
+msgid "August"
+msgstr "August"
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "Color for new entry:"
+msgstr "Farbe für neuen Eintrag"
+
+msgid "December"
+msgstr "Dezenber"
+
+msgid "Distance from left (%)"
+msgstr "Abstand von links (%):"
+
+msgid "Distance from top (pixel)"
+msgstr "Abstand von oben (Pixel):"
+
+msgid "End-Date"
+msgstr "Ende-Datum"
+
+msgid "Entry"
+msgstr "Eintrag"
+
+msgid "Extra-Setting for dat"
+msgstr "Einstellung Sonderfall"
+
+msgid "February"
+msgstr "Februar"
+
+msgid "High total"
+msgstr "Höhe gesamt"
+
+msgid "January"
+msgstr "Januar"
+
+msgid "July"
+msgstr "Juli"
+
+msgid "June"
+msgstr "Juni"
+
+msgid "March"
+msgstr "März"
+
+msgid "May"
+msgstr "Mai"
+
+msgid "New description"
+msgstr "neue Beschriftung"
+
+msgid "New entry"
+msgstr "Neuer Eintrag"
+
+msgid "November"
+msgstr "November"
+
+msgid "October"
+msgstr "Oktober"
+
+msgid "Save"
+msgstr "speichern"
+
+msgid "Save and exit"
+msgstr "Speichern und Beenden"
+
+msgid "September"
+msgstr "September"
+
+msgid "Set End-Date"
+msgstr "Ende-Datum festlegen"
+
+msgid "Set Standard"
+msgstr "Setze Standard-Schicht"
+
+msgid "Set Start-Date"
+msgstr "Start-Datum festlegen"
+
+msgid "Show in LCD"
+msgstr "Im LCD anzeigen"
+
+msgid "Size for a single"
+msgstr "Größe für Einzelelement"
+
+msgid "Start-Date"
+msgstr "Start-Datum"
+
+msgid "Widht total"
+msgstr "Breite gesamt"
+
+msgid "activate"
+msgstr "aktivieren"
+
+msgid "deactivate"
+msgstr "deaktivieren"
+
+msgid "delete"
+msgstr "löschen"
+
+msgid "distance between"
+msgstr "Abstand dazwischen"
