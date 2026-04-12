@@ -3,7 +3,6 @@
 # mspFS von shadowrider
 ###############################################################################
 from Plugins.Plugin import PluginDescriptor
-from Components.PluginComponent import plugins
 import os
 from enigma import eTimer
 import time
@@ -18,10 +17,10 @@ version = "1.06"
 session = None
 del_on = 1
 try:
-    from Plugins.Extensions.LCD4linux.module import L4Lelement
+    from Plugins.Extensions.LCD4linux.module import L4Lelement  # noqa F401
     from .paint import mspFS_paint
     l4l = True
-except:
+except ImportError:
     l4l = None
 
 
@@ -75,7 +74,7 @@ def run_autodel():
             fp.close()
         global del_on
         del_on = 0
-    except:
+    except Exception:
         pass
 
 

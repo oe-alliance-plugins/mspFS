@@ -2,11 +2,9 @@
 ###############################################################################
 from configparser import ConfigParser
 import datetime
-from Tools.Directories import copyfile, resolveFilename, SCOPE_PLUGINS, fileExists
+from Tools.Directories import fileExists
 import os
 import shutil
-from enigma import eTimer
-import time
 
 
 picon_path = "/usr/lib/enigma2/python/Plugins/Extensions/mspFS/picons"
@@ -15,17 +13,17 @@ picon_path = "/usr/lib/enigma2/python/Plugins/Extensions/mspFS/picons"
 configparser = ConfigParser()
 
 try:
-        from Plugins.Extensions.LCD4linux.module import L4Lelement
-        #configparser = ConfigParser()
-        configparser.read("/etc/ConfFS/mspFS.conf")
-        if configparser.has_option("settings", "l4l_sets"):
-             l4l_sets = configparser.get("settings", "l4l_sets").split(":")
-        else:
-            l4l_sets = ("On", "1", "1", "0", "60", "100", "500", "10", "On", "0")
-        L4Lmspfs = L4Lelement()
-        l4l = True
-except:
-        l4l = None
+    from Plugins.Extensions.LCD4linux.module import L4Lelement
+    #configparser = ConfigParser()
+    configparser.read("/etc/ConfFS/mspFS.conf")
+    if configparser.has_option("settings", "l4l_sets"):
+        l4l_sets = configparser.get("settings", "l4l_sets").split(":")
+    else:
+        l4l_sets = ("On", "1", "1", "0", "60", "100", "500", "10", "On", "0")
+    L4Lmspfs = L4Lelement()
+    l4l = True
+except Exception:
+    l4l = None
 
 #heute=datetime.date.today()
 
@@ -50,7 +48,7 @@ class mspFS_paint:
             self.start_date = datetime.date(int(dx[0]), int(dx[1]), int(dx[2]))
         else:
             self.start_date = datetime.date.today().replace(month=1, day=1)
-    except:
+    except Exception:
         self.schichten = None
     if l4l:
      if self.schichten and l4l_sets[0] == "On":
@@ -61,7 +59,7 @@ class mspFS_paint:
       try:
          os.remove("/tmp/mspFS1.png")
          os.remove("/tmp/mspFS2.png")
-      except:
+      except OSError:
          pass
 
       try:
@@ -82,15 +80,15 @@ class mspFS_paint:
               if os.path.exists(picon_path):
                 if count == 0:
                    if fileExists(os.path.join(picon_path, schicht + ".png")):
-                           ret = shutil.copyfile(os.path.join(picon_path, schicht + ".png"), "/tmp/mspFS1.png")
+                        ret = shutil.copyfile(os.path.join(picon_path, schicht + ".png"), "/tmp/mspFS1.png")
                    else:
-                           ret = shutil.copyfile(os.path.join(picon_path, 'err.png'), "/tmp/mspFS1.png")
+                        ret = shutil.copyfile(os.path.join(picon_path, 'err.png'), "/tmp/mspFS1.png")  # noqa F841
 
                 elif count == 1:
                    if fileExists(os.path.join(picon_path, schicht + ".png")):
                        ret = shutil.copyfile(os.path.join(picon_path, schicht + ".png"), "/tmp/mspFS2.png")
                    else:
-                       ret = shutil.copyfile(os.path.join(picon_path, 'err.png'), "/tmp/mspFS1.png")
+                       ret = shutil.copyfile(os.path.join(picon_path, 'err.png'), "/tmp/mspFS1.png")  # noqa F841
               mySchicht.append(schicht)
               tg1 += 1
               s_dat = s_dat + datetime.timedelta(1)

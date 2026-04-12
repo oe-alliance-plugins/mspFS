@@ -15,18 +15,14 @@ from Components.ActionMap import HelpableActionMap
 from Components.Input import Input
 from Components.Label import Label
 from Components.Pixmap import Pixmap
-from Components.Sources.StaticText import StaticText
-from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
 from Components.MenuList import MenuList
 from Components.ConfigList import ConfigListScreen
-from Components.config import config, ConfigSelection, ConfigText, ConfigDateTime, ConfigYesNo, getConfigListEntry, NoSave, ConfigNothing
+from Components.config import ConfigSelection, ConfigText, ConfigDateTime, getConfigListEntry, NoSave, ConfigNothing
 
-from enigma import eListboxPythonMultiContent, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, RT_VALIGN_CENTER, gFont, eListbox, getDesktop
-from skin import parseColor, parseFont
+from enigma import eListboxPythonMultiContent, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, RT_VALIGN_CENTER, gFont, getDesktop
 from configparser import ConfigParser
 from Tools.Directories import fileExists
 import datetime
-import os
 from time import strftime, mktime, strptime
 from .VKB_mod import VKB_mod  # as VirtualKeyBoard
 
@@ -79,9 +75,9 @@ selected_schicht = None
 
 global L4l
 try:
-    from Plugins.Extensions.LCD4linux.module import L4Lelement
+    from Plugins.Extensions.LCD4linux.module import L4Lelement  # noqa F401
     L4l = True
-except:
+except ImportError:
     L4l = None
 
 
@@ -144,25 +140,7 @@ class Farben():
 class start_list(MenuList):
     def __init__(self, list, enableWrapAround=False):
         MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)
-        DWide = getDesktop(0).size().width()
-#       if DWide == 720:
-#            self.l.setFont(0, gFont("Regular", fontsize_list-2))
-#            self.l.setFont(1, gFont("Regular", fontsize_list))
-#       else:
-#            self.l.setFont(0, gFont("Regular", fontsize_list))
-#            self.l.setFont(1, gFont("Regular", fontsize_list+2))
-        self.l.setFont(1, gFont("Regular", 22))
-        self.l.setFont(2, gFont("Regular", 26))
-
-    def postWidgetCreate(self, instance):
-        MenuList.postWidgetCreate(self, instance)
-        instance.setItemHeight(40)
-
-
-class start_list(MenuList):
-    def __init__(self, list, enableWrapAround=False):
-        MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)
-        DWide = getDesktop(0).size().width()
+        #DWide = getDesktop(0).size().width()
         self.l.setFont(1, gFont("Regular", 22))
         self.l.setFont(2, gFont("Regular", 26))
 
@@ -579,22 +557,22 @@ class msp_conf(Screen, HelpableScreen):
                 #color_days,color_holiday,cal_background,color_event,extern_color,color_inactiv))
 
         def colors(self):
-                self.session.openWithCallback(self.color_set, color_select)
+            self.session.openWithCallback(self.color_set, color_select)
 
         def color_set(self, answer=None):
-                 if answer:
-                     if self["menu"].l.getCurrentSelection()[0][2] == "prog_col":
-                         self.color_list[self["menu"].l.getCurrentSelection()[0][3]] = answer.lstrip('#')
-                         global prog_colors
-                         prog_colors = self.color_list
-                     self.load_list()
+            if answer:
+                if self["menu"].l.getCurrentSelection()[0][2] == "prog_col":
+                    self.color_list[self["menu"].l.getCurrentSelection()[0][3]] = answer.lstrip('#')
+                    global prog_colors
+                    prog_colors = self.color_list
+                self.load_list()
 
         def sch_col_set(self, answer=None):
-                 if answer:
-                     if self["menu"].l.getCurrentSelection()[0][2] == "sch_col":
-                         global schicht_colors
-                         schicht_colors[self["menu"].l.getCurrentSelection()[0][0]] = answer.lstrip('#')
-                     self.load_list()
+            if answer:
+                if self["menu"].l.getCurrentSelection()[0][2] == "sch_col":
+                    global schicht_colors
+                    schicht_colors[self["menu"].l.getCurrentSelection()[0][0]] = answer.lstrip('#')
+                self.load_list()
 
         def text(self):
            self.idx = self["menu"].l.getCurrentSelectionIndex()
@@ -641,18 +619,18 @@ class msp_conf(Screen, HelpableScreen):
                     self.session.openWithCallback(self.texteingabeFinished, InputBox, title=(_("Set distance between")), text=self.lcl_sets2[7], maxSize=False, type=Input.NUMBER)
 
         def choice_back(self, answer=None):
-                if answer:
-                       if self["menu"].l.getCurrentSelection()[0][0] == _("entferne Sonderdaten autom."):
-                             global autodel
-                             autodel = answer[1]
-                       else:
-                            self.lcl_sets2[self["menu"].l.getCurrentSelection()[0][3]] = answer[1]
-                       self.load_list()
+            if answer:
+                if self["menu"].l.getCurrentSelection()[0][0] == _("entferne Sonderdaten autom."):
+                    global autodel
+                    autodel = answer[1]
+                else:
+                    self.lcl_sets2[self["menu"].l.getCurrentSelection()[0][3]] = answer[1]
+                self.load_list()
 
         def texteingabeFinished(self, answer=None):
-                if answer:
-                              self.lcl_sets2[self["menu"].l.getCurrentSelection()[0][3]] = answer
-                              self.load_list()
+            if answer:
+                self.lcl_sets2[self["menu"].l.getCurrentSelection()[0][3]] = answer
+                self.load_list()
 
         def text_set(self, answer=None):
                  if answer:
@@ -662,18 +640,18 @@ class msp_conf(Screen, HelpableScreen):
                               d2 = datetime.date(int(dats[2]), int(dats[1]), int(dats[0]))
                               global start_date
                               start_date = d2
-                         except:
+                         except Exception:
                              pass
 
                      elif self["menu"].l.getCurrentSelection()[0][0] == _("Schicht-Turnus"):
-                         del_list = []
+                         #del_list = []
                          #answer=answer.strip()
                          global turnus
                          if answer.endswith(","):
                                 answer = answer[:-1]
                          turnus = answer.split(",")
                          for x in turnus:
-                            if not x in schicht_colors:
+                            if x not in schicht_colors:
                                  schicht_colors[x] = "858585"
 
                      self.load_list()
@@ -682,10 +660,10 @@ class msp_conf(Screen, HelpableScreen):
 
                 x = self["menu"].l.getCurrentSelection()[0][0]
                 if not len(x.strip()):
-                    if not " " in turnus and " " in schicht_colors:
+                    if " " not in turnus and " " in schicht_colors:
                         del schicht_colors[" "]
                         self.load_list()
-                elif not x.strip() in [x.strip() for x in turnus]:
+                elif x.strip() not in [x.strip() for x in turnus]:
                     del schicht_colors[x]
                     self.load_list()
                 else:
@@ -696,7 +674,7 @@ class msp_conf(Screen, HelpableScreen):
 
         def new_entry2(self, answer):
                if answer:
-                   if not answer in schicht_colors:
+                   if answer not in schicht_colors:
                        schicht_colors[answer] = "858585"
                        self.load_list()
                    else:
@@ -750,8 +728,8 @@ class color_liste(MenuList):
         for x in listnew:
             res = [x]
             color = int(x.lstrip('#'), 16)
-            color2 = int("FFFFFF", 16)
-            if s_color != None and s_color == color:
+            # color2 = int("FFFFFF", 16)
+            if s_color is not None and s_color == color:
                 sel_index = i
                 res.append((eListboxPythonMultiContent.TYPE_TEXT, 0, 5, 140, 30, 0, RT_HALIGN_LEFT, "selected:", color, color))
                 res.append((eListboxPythonMultiContent.TYPE_TEXT, 120, 5, 350, 30, 0, RT_HALIGN_LEFT, " ", color, color, color, color, 0, color))   #, color, color
@@ -772,28 +750,28 @@ class color_select(Screen):
                 </screen>"""
 
         def __init__(self, session, color=None, args=None):
-                Screen.__init__(self, session)
-                self.session = session
-                self.color = color
-                self["menu"] = color_liste([])
-                self["menu"].buildList(color_list, color)
-                self.onLayoutFinish.append(self.move)
+            Screen.__init__(self, session)
+            self.session = session
+            self.color = color
+            self["menu"] = color_liste([])
+            self["menu"].buildList(color_list, color)
+            self.onLayoutFinish.append(self.move)
 
-                self["actions"] = ActionMap(["OkCancelActions", "ColorActions"],
-                {
-                        "ok": self.keyOK,
-                        "cancel": self.cancel,
-                }, -1)
+            self["actions"] = ActionMap(["OkCancelActions", "ColorActions"],
+            {
+                    "ok": self.keyOK,
+                    "cancel": self.cancel,
+            }, -1)
 
         def move(self):
                self["menu"].buildList(color_list, self.color)
                #self["menu"].moveToIndex(20)
 
         def keyOK(self):
-                current = self["menu"].getCurrent()
-                if current:
-                        currentEntry = current[0]
-                        self.close(currentEntry)
+            current = self["menu"].getCurrent()
+            if current:
+                currentEntry = current[0]
+                self.close(currentEntry)
 
         def cancel(self):
                 self.close(None)
@@ -854,8 +832,8 @@ class day_conf(Screen, ConfigListScreen, HelpableScreen):
                 self.reloadList()
 
         def reloadList(self):
-                  self.load_list()
-                  self["config"].setList(self.liste)
+            self.load_list()
+            self["config"].setList(self.liste)
 
         def load_list(self):
                 liste = []
@@ -872,13 +850,13 @@ class day_conf(Screen, ConfigListScreen, HelpableScreen):
                 self.liste = liste
 
         def colors(self):
-                self.session.openWithCallback(self.color_set, color_select)
+            self.session.openWithCallback(self.color_set, color_select)
 
         def color_set(self, answer=None):
-                 if answer:
-                      global schicht_colors
-                      schicht_colors[self.schichten.value] = answer.lstrip('#')
-                      self.reloadList()
+            if answer:
+                global schicht_colors
+                schicht_colors[self.schichten.value] = answer.lstrip('#')
+                self.reloadList()
 #
 
         def text(self):
@@ -898,7 +876,7 @@ class day_conf(Screen, ConfigListScreen, HelpableScreen):
         def text_set(self, answer=None):
                  if answer:
                      if self["config"].getCurrent()[0] == _("New description"):
-                         if not answer in schicht_colors:
+                         if answer not in schicht_colors:
                                  self.new_descr.value = answer
                                  self.sch_list.append(answer)
                                  self.schichten.value = answer

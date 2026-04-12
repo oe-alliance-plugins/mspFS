@@ -1,17 +1,14 @@
 from . import _
 # -*- coding: UTF-8 -*-
 from enigma import eListboxPythonMultiContent, gFont, RT_HALIGN_CENTER, RT_VALIGN_CENTER, getPrevAsciiCode
-#from Screen import Screen
 from Screens.Screen import Screen
 from Screens.HelpMenu import HelpableScreen
 from Components.Language import language
 from Components.ActionMap import ActionMap, HelpableActionMap
 from Components.Sources.StaticText import StaticText
 from Components.Label import Label
-from Components.Pixmap import Pixmap
 from Components.MenuList import MenuList
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN
 from Tools.LoadPixmap import LoadPixmap
 
 image_folder = "/usr/lib/enigma2/python/Plugins/Extensions/mspFS/vkb_mod_image/"

@@ -1,5 +1,5 @@
 
-from configparser import ConfigParser, DuplicateSectionError
+from configparser import ConfigParser
 import datetime
 
 
@@ -26,7 +26,7 @@ class exporter():
                 f = open("/tmp/turnus", "w")
                 f.write(str(turnus))
                 f.close()
-                xr = 0
+                # xr = 0
                 #while len(turnus)<29:
                 #    turnus.append(turnus(xr)
                 #    xr+=1
@@ -71,7 +71,7 @@ class exporter():
                                #if len(str(turnus[sch_tag]).strip()):
                                    schicht = str(turnus[sch_tag]).strip()
                                    color = schicht_colors[str(turnus[sch_tag]).strip()]
-                               except:
+                               except Exception:
                                    schicht = str(turnus[sch_tag]).strip()
                                    color = "858585"
                     if schicht or schicht == "":
