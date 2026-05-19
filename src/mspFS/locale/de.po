@@ -1,7 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: mspFS\n"
-"POT-Creation-Date: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-12 20:08+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: shadowrider <plugins@fselbig.de>\n"
 "Language-Team: shadowrider <plugins@fselbig.de>\n"
@@ -13,107 +14,301 @@ msgstr ""
 "X-Generator: Poedit 1.6.5\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ../anzeige.py:808 ../anzeige.py:809
+msgid "%A, %d.%m %Y"
+msgstr ""
+
+#: ../anzeige.py:30
 msgid "April"
 msgstr "April"
 
+#: ../anzeige.py:30
 msgid "August"
 msgstr "August"
 
+#: ../anzeige.py:601
+msgid "Auswahl Sonderdaten autom. entfernen"
+msgstr ""
+
+#: ../anzeige.py:480 ../anzeige.py:494 ../anzeige.py:501 ../anzeige.py:818
+#: ../anzeige.py:830
 msgid "Cancel"
 msgstr "Abbrechen"
 
+#: ../anzeige.py:848
 msgid "Color for new entry:"
 msgstr "Farbe für neuen Eintrag"
 
+#: ../VKB_mod.py:137
+msgid "Cursor jump left"
+msgstr ""
+
+#: ../VKB_mod.py:138
+msgid "Cursor jump right"
+msgstr ""
+
+#: ../VKB_mod.py:143
+msgid "Cursor left"
+msgstr ""
+
+#: ../VKB_mod.py:144
+msgid "Cursor right"
+msgstr ""
+
+#: ../anzeige.py:525 ../anzeige.py:581 ../anzeige.py:637
+msgid "Datum erster Turnus-Eintrag"
+msgstr ""
+
+#: ../anzeige.py:30
 msgid "December"
 msgstr "Dezenber"
 
+#: ../VKB_mod.py:150
+msgid "Delete left from cursor"
+msgstr ""
+
+#: ../anzeige.py:552 ../anzeige.py:612
 msgid "Distance from left (%)"
 msgstr "Abstand von links (%):"
 
+#: ../anzeige.py:551 ../anzeige.py:614
 msgid "Distance from top (pixel)"
 msgstr "Abstand von oben (Pixel):"
 
+#: ../anzeige.py:495
+msgid "Edit selected option"
+msgstr ""
+
+#: ../anzeige.py:842 ../anzeige.py:872 ../anzeige.py:891
 msgid "End-Date"
 msgstr "Ende-Datum"
 
+#: ../anzeige.py:843 ../anzeige.py:865 ../anzeige.py:894
 msgid "Entry"
 msgstr "Eintrag"
 
+#: ../anzeige.py:801
 msgid "Extra-Setting for dat"
 msgstr "Einstellung Sonderfall"
 
+#: ../anzeige.py:30
 msgid "February"
 msgstr "Februar"
 
+#: ../anzeige.py:550 ../anzeige.py:610
 msgid "High total"
 msgstr "Höhe gesamt"
 
+#: ../anzeige.py:30
 msgid "January"
 msgstr "Januar"
 
+#: ../anzeige.py:30
 msgid "July"
 msgstr "Juli"
 
+#: ../anzeige.py:30
 msgid "June"
 msgstr "Juni"
 
+#: ../anzeige.py:546 ../anzeige.py:602
+msgid "LCD"
+msgstr ""
+
+#: ../anzeige.py:503
+#, fuzzy
+msgid "Make new entry"
+msgstr "Neuer Eintrag"
+
+#: ../anzeige.py:30
 msgid "March"
 msgstr "März"
 
+#: ../anzeige.py:30
 msgid "May"
 msgstr "Mai"
 
+#: ../anzeige.py:548 ../anzeige.py:606
+msgid "Mode"
+msgstr ""
+
+#: ../anzeige.py:483
+msgid "New"
+msgstr ""
+
+#: ../anzeige.py:847 ../anzeige.py:867 ../anzeige.py:868 ../anzeige.py:878
 msgid "New description"
 msgstr "neue Beschriftung"
 
+#: ../anzeige.py:673 ../anzeige.py:805 ../anzeige.py:845
 msgid "New entry"
 msgstr "Neuer Eintrag"
 
+#: ../anzeige.py:30
 msgid "November"
 msgstr "November"
 
+#: ../anzeige.py:30
 msgid "October"
 msgstr "Oktober"
 
+#: ../anzeige.py:524
+msgid "Programm-Daten"
+msgstr ""
+
+#: ../anzeige.py:530
+msgid "Programm-Farben"
+msgstr ""
+
+#: ../anzeige.py:479 ../anzeige.py:817
 msgid "Save"
 msgstr "speichern"
 
+#: ../VKB_mod.py:151 ../anzeige.py:500 ../anzeige.py:829
 msgid "Save and exit"
 msgstr "Speichern und Beenden"
 
+#: ../anzeige.py:537
+msgid "Schicht-Farben"
+msgstr ""
+
+#: ../anzeige.py:527 ../anzeige.py:585 ../anzeige.py:590 ../anzeige.py:646
+msgid "Schicht-Turnus"
+msgstr ""
+
+#: ../anzeige.py:467
+msgid "Schichtplaner-Einstellungen"
+msgstr ""
+
+#: ../anzeige.py:547 ../anzeige.py:604
+msgid "Screen"
+msgstr ""
+
+#: ../anzeige.py:866
+#, fuzzy
+msgid "Select entry"
+msgstr "Neuer Eintrag"
+
+#: ../anzeige.py:603
+msgid "Select the LCD"
+msgstr ""
+
+#: ../anzeige.py:607
+msgid "Select the Mode(s)"
+msgstr ""
+
+#: ../anzeige.py:30
 msgid "September"
 msgstr "September"
 
+#: ../anzeige.py:613
+#, fuzzy
+msgid "Set Distance from left (%)"
+msgstr "Abstand von links (%):"
+
+#: ../anzeige.py:615
+#, fuzzy
+msgid "Set Distance from top in pixel"
+msgstr "Abstand von oben (Pixel):"
+
+#: ../anzeige.py:874
 msgid "Set End-Date"
 msgstr "Ende-Datum festlegen"
 
+#: ../anzeige.py:611
+#, fuzzy
+msgid "Set High total"
+msgstr "Höhe gesamt"
+
+#: ../anzeige.py:617
+#, fuzzy
+msgid "Set Size for a single"
+msgstr "Größe für Einzelelement"
+
+#: ../anzeige.py:802 ../anzeige.py:807 ../anzeige.py:906
 msgid "Set Standard"
 msgstr "Setze Standard-Schicht"
 
+#: ../anzeige.py:871
 msgid "Set Start-Date"
 msgstr "Start-Datum festlegen"
 
+#: ../anzeige.py:609
+#, fuzzy
+msgid "Set Widht total"
+msgstr "Breite gesamt"
+
+#: ../anzeige.py:619
+#, fuzzy
+msgid "Set distance between"
+msgstr "Abstand dazwischen"
+
+#: ../anzeige.py:605
+msgid "Set number for screen"
+msgstr ""
+
+#: ../VKB_mod.py:153
+msgid "Shift"
+msgstr ""
+
+#: ../anzeige.py:545 ../anzeige.py:598
 msgid "Show in LCD"
 msgstr "Im LCD anzeigen"
 
+#: ../anzeige.py:599
+#, fuzzy
+msgid "Show on LCD"
+msgstr "Im LCD anzeigen"
+
+#: ../anzeige.py:553 ../anzeige.py:616
 msgid "Size for a single"
 msgstr "Größe für Einzelelement"
 
+#: ../anzeige.py:841 ../anzeige.py:869 ../anzeige.py:886
 msgid "Start-Date"
 msgstr "Start-Datum"
 
+#: ../anzeige.py:583
+#, fuzzy
+msgid "Startdatum"
+msgstr "Start-Datum"
+
+#: ../VKB_mod.py:152
+msgid "Toggle Language"
+msgstr ""
+
+#: ../anzeige.py:549 ../anzeige.py:608
 msgid "Widht total"
 msgstr "Breite gesamt"
 
+#: ../anzeige.py:599
 msgid "activate"
 msgstr "aktivieren"
 
+#: ../anzeige.py:599
 msgid "deactivate"
 msgstr "deaktivieren"
 
+#: ../anzeige.py:481
 msgid "delete"
 msgstr "löschen"
 
+#: ../anzeige.py:502
+msgid "delete shift entry"
+msgstr ""
+
+#: ../anzeige.py:554 ../anzeige.py:618
 msgid "distance between"
 msgstr "Abstand dazwischen"
+
+#: ../anzeige.py:528 ../anzeige.py:600 ../anzeige.py:623
+msgid "entferne Sonderdaten autom."
+msgstr ""
+
+#: ../anzeige.py:544
+msgid "l4l-Grafik"
+msgstr ""
+
+#: ../VKB_mod.py:108
+msgid "trenne mit Komma - Beispiel: F,F,N,N,N,S,S,fr,fr"
+msgstr ""
